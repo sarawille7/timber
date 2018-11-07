@@ -1,0 +1,16 @@
+
+body {
+    padding: 20px;
+    background-color: lightblue;
+}
+ol 
+li {
+    margin: 5px;
+    background: #cce5ff;
+    padding: 5px;
+    text-align: left;
+}
+img {
+    width: 50%;
+    height: auto;
+}
