@@ -1,4 +1,5 @@
 <?php
+session_start();
 	//take contents of user_form.html via post request
 	//check username and password fields not empty
 	//if empty, redirect back to input form using header() function
@@ -10,6 +11,7 @@ if(empty($_POST["username"]) || empty($_POST["password"])) {
 	die();
 } 
 try{
+  $password = $_POST["password"];
     $hashed_password = password_hash ( $password , PASSWORD_DEFAULT );
 	$db = new PDO('sqlite:./myDB/timber.db');
 	$db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -19,5 +21,7 @@ try{
 } catch(PDOException $e) {
 	die('Exception : '.$e->getMessage());
 }
-header("Location: http://54.173.137.240/~ubuntu/showLogin.php?success=true");
+$_SESSION['valid'] = TRUE;
+$_SESSION['username'] = $_POST["username"];
+header("Location: showLogin.php?success=true");
 ?>
