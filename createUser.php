@@ -23,5 +23,5 @@ try{
 }
 $_SESSION['valid'] = TRUE;
 $_SESSION['username'] = $_POST["username"];
-header("Location: showLogin.php?success=true");
+header("Location: userProfile.php");
 ?>
