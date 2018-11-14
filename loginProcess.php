@@ -26,5 +26,5 @@ try{
 } catch(PDOException $e) {
 	die('Exception : '.$e->getMessage());
 }
-header("Location: showLogin.php?success=true");
+//header("Location: showLogin.php?success=true");
 ?>
