@@ -12,7 +12,7 @@ if(empty($_SESSION["username"]) || empty($_SESSION["valid"])) {
 <body>
 
 <p><?php echo "You are logged in as "; echo $_SESSION["username"]; ?>.</p>
-<p><a href="updateUser.php">Update</a></p>
+<p><a href="updatePassword.php">Update</a></p>
 <p><a href="logout.php">Logout</a></p>
 
 </body>
