@@ -32,7 +32,7 @@ else{
 
 <form action='<?php echo $action_direct ?>' method="post">
     Username:<br><input type="text" name="username" required pattern="[A-Z]\w+|[a-z]\w+" value='<?php echo $username; ?>'><br>
-    Password:<br><input type="text" name="password" value='<?php echo $password; ?>'><br>
+    Password:<br><input type="password" name="password" value='<?php echo $password; ?>'><br>
 <input type="submit" value= '<?php echo $button; ?>'>
 </form>
 </body>

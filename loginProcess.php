@@ -15,9 +15,9 @@ try{
   $pass = $result["password"];
   $verify = password_verify($_POST["password"], $pass);
   if ($verify){
-    echo("User found and verified");
     $_SESSION['valid'] = $verify;
     $_SESSION['username'] = $_POST["username"];
+    header("Location: userProfile.php");
   }
   else {
     echo("Nope, no user here");
@@ -26,5 +26,4 @@ try{
 } catch(PDOException $e) {
 	die('Exception : '.$e->getMessage());
 }
-header("Location: showLogin.php?success=true");
 ?>

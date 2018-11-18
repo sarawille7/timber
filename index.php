@@ -10,7 +10,13 @@
 
 <div>
   <h2>
-    <a href = "proposal.html">Project 3 Proposal Page
+    <a href = "timber.php">Project 4: Timber</a>
+  </h2>
+</div>
+
+<div>
+  <h2>
+    <a href = "proposal.html">Project 3 Proposal Page</a>
   </h2>
 </div>
 
