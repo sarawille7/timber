@@ -3,7 +3,6 @@
 <head><link rel="stylesheet" type="text/css" href="basic.css"></head>
 <body>
 
-<h2>Create User</h2>
 
  <?php
 $is_update = true;
@@ -28,6 +27,8 @@ else{
     $action_direct = 'createUser.php';
     $button = 'Submit';}
 ?>
+
+<h2>Create User</h2>
 
 <form action='<?php echo $action_direct ?>' method="post">
     Username:<br><input type="text" name="username" required pattern="[A-Z]\w+|[a-z]\w+" value='<?php echo $username; ?>'><br>
