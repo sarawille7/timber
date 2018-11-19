@@ -4,8 +4,7 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE Users(
-    userID INTEGER PRIMARY KEY,
-    username TEXT UNIQUE, --TODO include regex check for alphanumeric password
+    username TEXT PRIMARY KEY,
     password TEXT NOT NULL,
     privileges TEXT NOT NULL CHECK(privileges IN ("general", "admin")) --all lowercase
 );
@@ -14,18 +13,18 @@ CREATE TABLE Users(
 CREATE TABLE PossibleSpecies(
     species TEXT UNIQUE
 );
-
+--treeID, username, name, photoID, rings, descript, species, height
 CREATE TABLE Trees(
     treeID INTEGER PRIMARY KEY,
-    userID INTEGER NOT NULL,
-    name TEXT NOT NULL, --TODO restricted to alphabet
-    photoID INTEGER NOT NULL,
+    username TEXT NOT NULL,
+    name TEXT NOT NULL,
+    photoID INTEGER NOT NULL UNIQUE,
     rings INTEGER NOT NULL CHECK(rings > 0),
     descript TEXT NOT NULL CHECK(LENGTH(descript) < 280),
     species TEXT NOT NULL,
-    height REAL NOT NULL CHECK(height > 0 AND height < 500), --TODO regex to restrict to hundredths place
-    FOREIGN KEY (userID)
-        REFERENCES Users (userID)
+    height REAL NOT NULL CHECK(height > 0 AND height < 500),
+    FOREIGN KEY (username)
+        REFERENCES Users (username)
           ON UPDATE CASCADE
           ON DELETE CASCADE
     FOREIGN KEY (species)
@@ -35,12 +34,12 @@ CREATE TABLE Trees(
 );
 
 CREATE TABLE Matches(
-    userID INTEGER NOT NULL,
+    username TEXT NOT NULL,
     treeID INTEGER NOT NULL,
-    matchDate TEXT NOT NULL, --TODO: regex to match time format
-    PRIMARY KEY (userID, treeID)
-    FOREIGN KEY (userID)
-        REFERENCES Users (userID)
+    matchDate TEXT NOT NULL,
+    PRIMARY KEY (username, treeID)
+    FOREIGN KEY (username)
+        REFERENCES Users (username)
           ON UPDATE CASCADE
           ON DELETE CASCADE
     FOREIGN KEY (treeID)
@@ -50,25 +49,25 @@ CREATE TABLE Matches(
 );
 
 CREATE TABLE Banned(
-    userID INTEGER UNIQUE,
+    username TEXT UNIQUE,
     banDate TEXT NOT NULL, --TODO: regex to match time format
-    FOREIGN KEY (userID)
-        REFERENCES Users (userID)
+    FOREIGN KEY (username)
+        REFERENCES Users (username)
             ON UPDATE CASCADE
             ON DELETE CASCADE
 );
 
 CREATE TABLE UserActivity(
     event TEXT CHECK(event IN ("Deletion", "Insertion", "Update")),
-    eventTIme TEXT,
-    userID INTEGER,
+    eventTime TEXT,
+    username TEXT,
     oldPassword TEXT,
     oldPrivileges TEXT,
     newPassword TEXT,
     newPrivileges TEXT,
-    PRIMARY KEY (userID, eventTime)
-    FOREIGN KEY (userID)
-        REFERENCES Users (userID)
+    PRIMARY KEY (username, eventTime)
+    FOREIGN KEY (username)
+        REFERENCES Users (username)
             ON UPDATE CASCADE
             ON UPDATE CASCADE
 );
@@ -77,18 +76,18 @@ CREATE TABLE TreeActivity(
     event TEXT CHECK(event IN ("Deletion", "Insertion", "Update")),
     eventTime TEXT,
     treeID INTEGER,
-    oldName TEXT NOT NULL,
-    oldPhotoID INTEGER NOT NULL,
-    oldRings INTEGER NOT NULL,
-    oldDescript TEXT NOT NULL,
-    oldSpecies TEXT NOT NULL,
-    oldHeight REAL NOT NULL,
-    newName TEXT NOT NULL,
-    newPhotoID INTEGER NOT NULL,
-    newRings INTEGER NOT NULL,
-    newDescript TEXT NOT NULL,
-    newSpecies TEXT NOT NULL, --
-    newHeight REAL NOT NULL,
+    oldName TEXT,
+    oldPhotoID INTEGER,
+    oldRings INTEGER,
+    oldDescript TEXT,
+    oldSpecies TEXT,
+    oldHeight REAL,
+    newName TEXT,
+    newPhotoID INTEGER,
+    newRings INTEGER,
+    newDescript TEXT,
+    newSpecies TEXT,
+    newHeight REAL,
     PRIMARY KEY (treeID, eventTime)
     FOREIGN KEY (treeID)
         REFERENCES Trees (treeID)
@@ -129,21 +128,21 @@ CREATE TRIGGER UserEvent_delete
     AFTER DELETE ON Users
         BEGIN
             INSERT INTO UserActivity
-            VALUES ('Deletion', datetime('now'), OLD.userID, OLD.password, OLD.privileges, null, null, null);
+            VALUES ('Deletion', datetime('now'), OLD.username, OLD.password, OLD.privileges, null, null);
         END;
 
 CREATE TRIGGER UserEvent_insert
     AFTER DELETE ON Users
         BEGIN
             INSERT INTO UserActivity
-            VALUES ('Insertion', datetime('now'), NEW.userID, null, null, null, NEW.password, NEW.privileges);
+            VALUES ('Insertion', datetime('now'), NEW.username, null, null, NEW.password, NEW.privileges);
         END;
 
 CREATE TRIGGER UserEvent_update
     AFTER DELETE ON Users
         BEGIN
             INSERT INTO UserActivity
-            VALUES ('Insertion', datetime('now'), OLD.userID, OLD.userID, OLD.password, OLD.privileges, NEW.password, NEW.privileges);
+            VALUES ('Insertion', datetime('now'), OLD.username, OLD.password, OLD.privileges, NEW.password, NEW.privileges);
         END;
 
 CREATE TRIGGER TreeEvent_delete

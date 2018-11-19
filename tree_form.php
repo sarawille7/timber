@@ -8,7 +8,7 @@
 
  <?php
  //treeID
- //userID
+ //username
  //name
  //photoID
  //rings

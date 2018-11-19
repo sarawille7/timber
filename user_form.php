@@ -3,13 +3,6 @@
 <head><link rel="stylesheet" type="text/css" href="basic.css">
 </head>
 <body>
-  <!-- <div class="navbar">
-    <a href="timberHome.php">Home</a>
-    <a href="userProfile.php">My Profile</a>
-    <a href="index.php">CS455 Dir</a>
-  </div> -->
-
-
 
 
  <?php
