@@ -3,11 +3,12 @@
   <head>
     <link rel="stylesheet" type="text/css" href="basic.css">
     <style>
-      body {margin:0;}
+      body {margin:0;
+      top:30px;}
 
       .navbar {
         overflow: hidden;
-        background-color: #333;
+        background-color: #269;
         position: fixed;
         top: 0;
         width: 100%;
@@ -38,7 +39,7 @@
   </head>
   <body>
     <div class="navbar">
-      <a href="timberHome.php">Home</a>
+      <a href="timber.php">Home</a>
       <a href="userProfile.php">My Profile</a>
       <a href="index.php">CS455 Dir</a>
     </div>
