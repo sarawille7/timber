@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" type="text/css" href="basic.css"></head>
+<head><link rel="stylesheet" type="text/css" href="basic.css">
+</head>
 <body>
+  <!-- <div class="navbar">
+    <a href="timberHome.php">Home</a>
+    <a href="userProfile.php">My Profile</a>
+    <a href="index.php">CS455 Dir</a>
+  </div> -->
 
-<h2>Create User</h2>
+
+
 
  <?php
 $is_update = true;
@@ -27,12 +34,17 @@ if($is_update === true){
 else{
     $action_direct = 'createUser.php';
     $button = 'Submit';}
-?>
 
-<form action='<?php echo $action_direct ?>' method="post">
-    Username:<br><input type="text" name="username" required pattern="[A-Z]\w+|[a-z]\w+" value='<?php echo $username; ?>'><br>
-    Password:<br><input type="password" name="password" value='<?php echo $password; ?>'><br>
-<input type="submit" value= '<?php echo $button; ?>'>
-</form>
+// INCLUDE THE FOLLOWING LINE ON EVERY PAGE TO ADD THE MENU
+    include("menu.PHP");
+?>
+<div class = "main">
+  <h2>Create User</h2>
+  <form action='<?php echo $action_direct ?>' method="post">
+      Username:<br><input type="text" name="username" required pattern="[A-Z]\w+|[a-z]\w+" value='<?php echo $username; ?>'><br>
+      Password:<br><input type="password" name="password" value='<?php echo $password; ?>'><br>
+  <input type="submit" value= '<?php echo $button; ?>'>
+  </form>
+</div>
 </body>
 </html>
