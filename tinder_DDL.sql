@@ -4,7 +4,7 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE Users(
-    username TEXT PRIMARY KEY;
+    username TEXT PRIMARY KEY,
     password TEXT NOT NULL,
     privileges TEXT NOT NULL CHECK(privileges IN ("general", "admin")) --all lowercase
 );
