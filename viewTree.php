@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_GET["treeID"])) {
+if(!isset($_GET["treeID"])) {
 	//error
 	header("Location: timber.php");
 	die();
@@ -12,8 +12,21 @@ if(empty($_GET["treeID"])) {
 <body>
 
 <?php
-  $treeID = $_GET["treeID"];
-  echo "You are viewing tree #$treeID."
+  try{
+    $db = new PDO('sqlite:./myDB/timber.db');
+    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $db->prepare('SELECT * FROM trees WHERE treeID == ?');
+    $stmt->execute(array($_GET["treeID"]));
+    $result = $stmt->fetch();
+    echo "name: $result[name] <br/>";
+    echo "description: $result[descript] <br/>";
+    echo "species: $result[species] <br/>";
+    echo "rings: $result[rings] <br/>";
+    echo "height: $result[height] <br/>";
+    $db = null;
+  } catch(PDOException $e) {
+    die('Exception : '.$e->getMessage());
+  }
 
 
  ?>
