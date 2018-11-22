@@ -12,7 +12,10 @@ if(empty($_SESSION["username"]) || empty($_SESSION["valid"])) {
 <body>
 
 <p><?php echo "You are logged in as "; echo $_SESSION["username"]; ?>.</p>
-<p><a href="updatePassword.php">Update</a></p>
+<?php 
+//echo "<a href=\"./passenger_form.php?ssn=$tuple[ssn]\">Update</a><br/>\n";
+echo "<a href=\"./password_form.php?username=$_SESSION[username]\">Update Password</a><br/>\n"; ?>
+<!-- <p><a href="password_form.php?username=$_SESSION['username']">Update Password</a></p> -->
 <p><a href="logout.php">Logout</a></p>
 <?php
 
@@ -23,7 +26,7 @@ try{
   $stmt->execute(array($_SESSION["username"]));
   $result_set = $stmt->fetchAll();
   if (count($result_set) == 0){
-    echo "You have submitted no trees. <a href=\"createTree.php\">Submit a tree now.<a>";
+    echo "You have submitted no trees.\n <a href=\"createTree.php\">Submit a tree now.<a>";
   }else {
     echo "<b>Submitted trees:</b><br/>";
     foreach($result_set as $tuple) {
