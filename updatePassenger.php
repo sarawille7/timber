@@ -7,7 +7,7 @@
 		$lname = $_POST['lastname'];
 		$ssn = $_POST['ssn'];
 		//redirect back to input form using header()
-		header("Location: http://54.173.137.240/~ubuntu/passenger_form.html?firstname=".$fname."&lastname=".$lname."&ssn=".$ssn);
+		header("Location: /passenger_form.html?firstname=".$fname."&lastname=".$lname."&ssn=".$ssn);
 		die();
 	} 
 

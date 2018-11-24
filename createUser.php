@@ -7,12 +7,11 @@ session_start();
 	//if no errors, insert the datra into the database and display success note
 if(empty($_POST["username"]) || empty($_POST["password"])) {
 	//redirect back to input form using header()
-	header("Location: http://54.173.137.240/~ubuntu/user_form.php");
+	header("Location: /user_form.php");
 	die();
 } 
 try{
-  $password = $_POST["password"];
-    $hashed_password = password_hash ( $password , PASSWORD_DEFAULT );
+    $hashed_password = password_hash ( $_POST["password"] , PASSWORD_DEFAULT );
 	$db = new PDO('sqlite:./myDB/timber.db');
 	$db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$stmt = $db->prepare('INSERT INTO users(username, password, privileges) VALUES(?,?, "general")');
