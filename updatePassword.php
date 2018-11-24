@@ -1,8 +1,8 @@
 <?php
-    
+
         if(empty($_POST["password"]) || empty($_POST["oldpassword"]) ||empty($_POST["username"])) {
             //redirect back to input form using header()
-            header("Location: /password_form.php?username=".$username);
+            header("Location: password_form.php?username=".$username);
             die();
         }
 
@@ -14,7 +14,7 @@
             //set errormode to use exceptions
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            
+
             $stmt = $db->prepare('UPDATE users SET password=? WHERE username=?;');
             $stmt->execute(array($hashed_password,$_POST["username"]));
 
@@ -24,6 +24,6 @@
             die('Exception : '.$e->getMessage());
         }
 
-	header("Location: /userProfile.php?success=true");
+	header("Location: userProfile.php?success=true");
 
 ?>

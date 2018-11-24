@@ -10,9 +10,14 @@ if(empty($_SESSION["username"]) || empty($_SESSION["valid"])) {
 	die();
 }
 ?>
+<?php
+include("menu.PHP");
+?>
 
-<p><?php echo "You are logged in as "; echo $_SESSION["username"]; ?>.</p>
-<p><a href="logout.php">Logout</a></p>
+<div class = "main">
+	<p><?php echo "You are logged in as "; echo $_SESSION["username"]; ?>.</p>
+	<p><a href="logout.php">Logout</a></p>
+</div>
 
 </body>
 </html>

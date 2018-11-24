@@ -20,14 +20,14 @@ include("menu.PHP");
 
   <div>
     <h2>
-      <a href = "proposal.html">Project 3 Proposal Page</a>
+      <a href = "proposal.php">Project 3 Proposal Page</a>
     </h2>
   </div>
 
 
   <div>
     <h2>
-      Project 2 Directory
+      Project 2 Directory (No longer operational)
     </h2>
   </div>
 
