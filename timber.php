@@ -16,8 +16,8 @@
         echo "<h2>Welcome to Timber!</h2><a href=\"login.php\">Login</a></br><a href=\"user_form.php\">Sign Up</a>";
       }
       else {
-        //this should redirect to user profile
-        header("Location: showLogin.php");
+        //redirect to user profile
+        header("Location: userProfile.php");
       }
 
     ?>

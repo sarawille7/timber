@@ -19,8 +19,8 @@ $button = 'Update Password';
 <div class = "main">
   <h2>Update Password</h2>
   <form action='<?php echo $action_direct ?>' method="post">
-      Old Password:<br><input type="password" name="oldpassword" value='<?php echo $oldpassword; ?>'><br>
-      New Password:<br><input type="password" name="password" value='<?php echo $password; ?>'><br>
+      Old Password:<br><input type="password" name="oldpassword"><br>
+      New Password:<br><input type="password" name="password"><br>
       <?php
       echo "<input type='hidden' name='username' value=$username>";
       ?>
