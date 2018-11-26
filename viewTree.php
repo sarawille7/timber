@@ -15,6 +15,7 @@ include("menu.PHP");
 ?>
 
 <div class = "main">
+	<br>
 	<?php
 	  try{
 	    $db = new PDO('sqlite:./myDB/timber.db');
