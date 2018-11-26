@@ -35,8 +35,8 @@
 <div class = "main">
   <h2>Create User</h2>
   <form action='<?php echo $action_direct ?>' method="post">
-      Username:<br><input type="text" name="username" required pattern="[A-Z]\w+|[a-z]\w+" value='<?php echo $username; ?>'><br>
-      Password:<br><input type="password" name="password" value='<?php echo $password; ?>'><br>
+      Username:<br><input type="text" name="username" required pattern="[A-Z]\w+|[a-z]\w+"><br>
+      Password:<br><input type="password" name="password"><br>
   <input type="submit" value= '<?php echo $button; ?>'>
   </form>
 </div>

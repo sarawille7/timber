@@ -5,6 +5,11 @@ if(empty($_SESSION["username"]) || empty($_SESSION["valid"])) {
 	header("Location: login.php");
 	die();
 }
+if($_SESSION["privileges"] == "admin") {
+	//user is admin and shouldn't use this page
+	header("Location: admin.php");
+	die();
+}
 ?>
 <!DOCTYPE html>
 <html>

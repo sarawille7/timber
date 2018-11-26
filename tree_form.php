@@ -76,9 +76,9 @@ include("menu.PHP");
 
   ?>
 <!-- TODO: input name "description" should be styled as a larger entry box to allow users to read all their content more easily -->
-  <form action='<?php echo $action_direct ?>' method="post" id="treeForm">
+  <form action='<?php echo $action_direct ?>' method="post" enctype="multipart/form-data" id="treeForm">
       Tree Name:<br><input type="text" name="treename" required pattern="([A-Za-z]+\w)" minlength = "2" value='<?php echo $treename; ?>'><br>
-      Photo:<br><input type="file" name="photo" accept="image/*" value='<?php echo $photo; ?>'><br>
+      Photo:<br><input type="file" name="photo" id="photo" accept="image/*" value='<?php echo $photo; ?>'><br>
       Number of Rings:<br><input type="text" name="rings" required pattern="[0-9]+" value='<?php echo $rings; ?>'><br>
       Species:<br><select name="species" value='<?php echo $species; ?>'>
                   <?php

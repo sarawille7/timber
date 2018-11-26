@@ -17,6 +17,7 @@ try{
   if ($verify){
     $_SESSION['valid'] = $verify;
     $_SESSION['username'] = $_POST["username"];
+    $_SESSION['privileges'] = $result["privileges"];
     header("Location: userProfile.php");
   }
   else {
