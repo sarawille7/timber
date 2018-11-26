@@ -19,10 +19,10 @@ CREATE TABLE Trees(
     username TEXT NOT NULL,
     name TEXT NOT NULL,
     photoID INTEGER NOT NULL UNIQUE,
-    rings INTEGER NOT NULL CHECK(rings > 0),
+    rings INTEGER NOT NULL CHECK,
     descript TEXT NOT NULL CHECK(LENGTH(descript) < 280),
     species TEXT NOT NULL,
-    height REAL NOT NULL CHECK(height > 0 AND height < 500),
+    height REAL NOT NULL CHECK,
     FOREIGN KEY (username)
         REFERENCES Users (username)
           ON UPDATE CASCADE
@@ -36,7 +36,7 @@ CREATE TABLE Trees(
 CREATE TABLE Matches(
     username TEXT NOT NULL,
     treeID INTEGER NOT NULL,
-    matchDate TEXT NOT NULL,
+    matchDate TIMESTAMP NOT NULL,
     PRIMARY KEY (username, treeID)
     FOREIGN KEY (username)
         REFERENCES Users (username)
@@ -49,8 +49,8 @@ CREATE TABLE Matches(
 );
 
 CREATE TABLE Banned(
-    username TEXT UNIQUE,
-    banDate TEXT NOT NULL, --TODO: regex to match time format
+    username ATE UNIQUE,
+    banDate TIMESTAMP NOT NULL,
     FOREIGN KEY (username)
         REFERENCES Users (username)
             ON UPDATE CASCADE
@@ -59,7 +59,7 @@ CREATE TABLE Banned(
 
 CREATE TABLE UserActivity(
     event TEXT CHECK(event IN ("Deletion", "Insertion", "Update")),
-    eventTime TEXT,
+    eventTime TIMESTAMP,
     username TEXT,
     oldPassword TEXT,
     oldPrivileges TEXT,
@@ -74,7 +74,7 @@ CREATE TABLE UserActivity(
 
 CREATE TABLE TreeActivity(
     event TEXT CHECK(event IN ("Deletion", "Insertion", "Update")),
-    eventTime TEXT,
+    eventTime TIMESTAMP,
     treeID INTEGER,
     oldName TEXT,
     oldPhotoID INTEGER,
@@ -97,7 +97,7 @@ CREATE TABLE TreeActivity(
 
 CREATE TABLE SpeciesActivity(
     event TEXT CHECK(event IN ("Deletion", "Insertion", "Update")),
-    eventTime TEXT,
+    eventTime TIMESTAMP,
     oldSpecies TEXT,
     newSpecies TEXT,
     PRIMARY KEY (event, eventTime)
