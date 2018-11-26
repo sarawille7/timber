@@ -12,7 +12,7 @@ if(empty($_POST["treename"]) || empty($_POST["photo"]) || empty($_POST["rings"])
 } 
 try{
     $treename = $_POST["treename"];
-    $photo = password_hash ( $photo , PASSWORD_DEFAULT );
+    $photo = password_hash ( $_POST["photo"] , PASSWORD_DEFAULT );
 	$db = new PDO('sqlite:./myDB/timber.db');
 	$db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$stmt = $db->prepare('INSERT INTO trees(treeID, username, name, photoID, rings, descript, species, height) VALUES(?,?, ?, ?, ?, ?, ?, ?)');
@@ -21,7 +21,7 @@ try{
 } catch(PDOException $e) {
 	die('Exception : '.$e->getMessage());
 }
-$_SESSION['valid'] = TRUE;
-$_SESSION['username'] = $_POST["username"];
+//$_SESSION['valid'] = TRUE;
+//$_SESSION['username'] = $_POST["username"];
 header("Location: userProfile.php");
 ?>
