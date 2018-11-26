@@ -27,6 +27,7 @@ include("menu.PHP");
 	    echo "species: $result[species] <br/>";
 	    echo "rings: $result[rings] <br/>";
 	    echo "height: $result[height] <br/>";
+      echo "<img src=\"images/$result[photoID]\" alt=\"no image found at images/$result[photoID]\">";
 	    $db = null;
 	  } catch(PDOException $e) {
 	    die('Exception : '.$e->getMessage());
