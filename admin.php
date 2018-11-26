@@ -16,6 +16,7 @@ include("menu.PHP");
 
 <div class = "main">
 	<p><?php echo "If you can see this, you are an administrative user, "; echo $_SESSION["username"]; ?>.</p>
+  <a href = "adminViewTrees.php">View all trees</a>
 	<p><a href="logout.php">Logout</a></p>
 	<?php
 
