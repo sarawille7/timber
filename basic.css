@@ -13,7 +13,7 @@ body {margin:0;
 
     .navbar {
       overflow: hidden;
-      background-color: #1e631b;
+      background-color: #3f7240;
       position: fixed;
       top: 0;
       width: 100%;
@@ -22,18 +22,18 @@ body {margin:0;
     .navbar a {
       float: left;
       display: block;
-      color: peru;
+      color: #b58448;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
       font-size: 17px;
       font-family: "Arial", "Helvetica", sans-serif;
-      background-color: #1e631b;
+      background-color: #3f7240;
       border-radius: 0px;
     }
     .navbar a:visited {
-        background-color: #1e631b;
-        color: peru;
+        background-color: #3f7240;
+        color: #b58448;
         text-align: center;
         text-decoration: none;
         /* display: inline-block; */
@@ -44,8 +44,8 @@ body {margin:0;
         border-radius: 0px;
     }
     .navbar a:link{
-        background-color: #1e631b;
-        color: peru;
+        background-color: #3f7240;
+        color: #b58448;
         text-align: center;
         text-decoration: none;
         /* display: inline-block; */
@@ -57,7 +57,7 @@ body {margin:0;
     }
     .navbar a:active {
         background-color: #4cb24e;
-        color: black;
+        color: #4f4320;
         width: 200px;
         height: 30px;
         padding: 15px 15px;
@@ -66,7 +66,7 @@ body {margin:0;
     }
     .navbar a:hover {
         background-color: #4cb24e;
-        color: black;
+        color: #4f4320;
         width: 200px;
         height: 30px;
         padding: 15px 15px;
@@ -83,8 +83,8 @@ body {margin:0;
         height: 1500px; /* Used in this example to enable scrolling */
     }
     a.option:link, a.option:visited {
-            background-color: #3f7240;
-            color: peru;
+            background-color: #5c964f;
+            color: #4f4320;
             padding: 14px 25px;
             text-align: center;
             text-decoration: none;
@@ -100,7 +100,7 @@ body {margin:0;
     a.option:hover, a.option:active {
             background-color: #4cb24e;
             padding: 10px 10px 10px 10px;
-            color: black;
+            color: #4f4320;
             /* height: 30px; */
             float: left;
             border-radius: 12px;
@@ -108,8 +108,8 @@ body {margin:0;
     }
     a.tree:link, a.tree:visited {
         font-size: 25px;
-        background-color: #3f7240;
-        color: peru;
+        background-color: #5c964f;
+        color: #4f4320;
         padding: 14px 25px;
         text-align: center;
         text-decoration: none;
@@ -126,19 +126,19 @@ a.tree:hover, a.tree:active {
     font-size: 25px;
         background-color: #4cb24e;
         padding: 10px 10px 10px 10px;
-        color: black;
+        color: #4f4320;
         /* height: 30px; */
         float: left;
         border-radius: 12px;
     
 }
 body {
-    background-color: #3f7240;
+    background-color: #5c964f;
 }
 ol
 li {
     margin: 5px;
-    background: #3f7240;
+    background: #5c964f;
     padding: 5px;
     text-align: left;
 }
@@ -147,8 +147,8 @@ img {
     height: auto;
 }
 a:link, a:visited {
-    background-color: #3f7240;
-    color: peru;
+    background-color: #5c964f;
+    color: #4f4320;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
@@ -164,20 +164,23 @@ a:link, a:visited {
 a:hover, a:active {
     background-color: #4cb24e;
     padding: 10px 10px 10px 10px;
-    color: black;
+    color: #4f4320;
     /* height: 30px; */
     float: left;
     /* border-radius: 0px; */
 }
 h1 {
+    color: #4f4320;
     width: 200px;
     float: left;
 }
 h2 {
+    color: #4f4320;
     width: 300px;
     /* float: left; */
 }
 h3.logo{
+    color: #b58448;
     width: 100px;
     float: left;
     height: 20;
