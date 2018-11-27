@@ -1,15 +1,177 @@
 
+
+/* .navbar a:link, a:visited {
+    background-color: #2b722c;
+    color: peru;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+} */
+body {margin:0;
+    top:30px;}
+
+    .navbar {
+      overflow: hidden;
+      background-color: #1e631b;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: peru;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      font-family: "Arial", "Helvetica", sans-serif;
+      background-color: #1e631b;
+      border-radius: 0px;
+    }
+    .navbar a:visited {
+        background-color: #1e631b;
+        color: peru;
+        text-align: center;
+        text-decoration: none;
+        /* display: inline-block; */
+        width: 200px;
+        height: 30px;
+        padding: 10px 10px;
+        float: left;
+        border-radius: 0px;
+    }
+    .navbar a:link{
+        background-color: #1e631b;
+        color: peru;
+        text-align: center;
+        text-decoration: none;
+        /* display: inline-block; */
+        width: 200px;
+        height: 30px;
+        padding: 10px 10px;
+        float: left;
+        border-radius: 0px;
+    }
+    .navbar a:active {
+        background-color: #4cb24e;
+        color: black;
+        width: 200px;
+        height: 30px;
+        float: left;
+        border-radius: 0px;
+    }
+    .navbar a:hover {
+        background-color: #4cb24e;
+        color: black;
+        width: 200px;
+        height: 30px;
+        float: left;
+        border-radius: 0px;
+    }
+    /* .navbar a:hover {
+      background: #4cb24e;
+      color: peru;
+    } */
+    .main {
+        padding: 16px;
+        margin-top: 30px;
+        height: 1500px; /* Used in this example to enable scrolling */
+    }
+    a.option:link, a.option:visited {
+            background-color: #3f7240;
+            color: peru;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            /* display: inline-block; */
+            /* width: 200px;
+            height: 30px; */
+            padding: 10px 10px;
+            float: left;
+            border-radius: 12px;
+        }
+        
+        
+    a.option:hover, a.option:active {
+            background-color: #4cb24e;
+            padding: 10px 10px 10px 10px;
+            color: black;
+            /* height: 30px; */
+            float: left;
+            border-radius: 12px;
+        
+    }
+    a.tree:link, a.tree:visited {
+        font-size: 25px;
+        background-color: #3f7240;
+        color: peru;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        /* display: inline-block; */
+        /* width: 200px;
+        height: 30px; */
+        padding: 10px 10px;
+        float: left;
+        border-radius: 12px;
+    }
+    
+    
+a.tree:hover, a.tree:active {
+    font-size: 25px;
+        background-color: #4cb24e;
+        padding: 10px 10px 10px 10px;
+        color: black;
+        /* height: 30px; */
+        float: left;
+        border-radius: 12px;
+    
+}
 body {
-    background-color: lightblue;
+    background-color: #3f7240;
 }
 ol
 li {
     margin: 5px;
-    background: #cce5ff;
+    background: #3f7240;
     padding: 5px;
     text-align: left;
 }
 img {
     width: 50%;
     height: auto;
+}
+a:link, a:visited {
+    background-color: #3f7240;
+    color: peru;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    /* width: 200px;
+    height: 30px; */
+    padding: 10px 10px;
+    float: left;
+    /* border-radius: 0px; */
+}
+
+
+a:hover, a:active {
+    background-color: #4cb24e;
+    padding: 10px 10px 10px 10px;
+    color: black;
+    /* height: 30px; */
+    float: left;
+    /* border-radius: 0px; */
+}
+h1 {
+    width: 200px;
+    float: left;
+}
+h2 {
+    width: 300px;
+    /* float: left; */
 }

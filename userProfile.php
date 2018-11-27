@@ -20,12 +20,12 @@ include("menu.PHP");
 ?>
 
 <div class = "main">
-	<p><?php echo "You are logged in as "; echo $_SESSION["username"]; ?>.</p>
+	<h1><?php  echo $_SESSION["username"]; ?>'s profile</h1><br>
 	<?php
 	//echo "<a href=\"./passenger_form.php?ssn=$tuple[ssn]\">Update</a><br/>\n";
-	echo "<a href=\"./password_form.php?username=$_SESSION[username]\">Update Password</a><br/>\n"; ?>
+	echo "<a class='option'  href=\"./password_form.php?username=$_SESSION[username]\">Update Password</a>\n"; ?>
 	<!-- <p><a href="password_form.php?username=$_SESSION['username']">Update Password</a></p> -->
-	<p><a href="logout.php">Logout</a></p>
+	<a class='option' href="logout.php">Logout</a>
 	<?php
 
 	try{
@@ -37,11 +37,11 @@ include("menu.PHP");
 	  if (count($result_set) == 0){
 	    echo "You have submitted no trees.\n <a href=\"createTree.php\">Submit a tree now.<a>";
 	  }else {
-	    echo "<b>Submitted trees:</b><br/>";
+			echo "<h2>Submitted trees:</h2><ul>";
 	    foreach($result_set as $tuple) {
-	      echo "<a href= \"viewTree.php?treeID=$tuple[treeID]\">$tuple[name]</a><br/>";
+	      echo "<a class='tree' href= \"viewTree.php?treeID=$tuple[treeID]\">$tuple[name]</a>";
 	    }
-	    echo "<br/><a href=\"tree_form.php\">Submit another tree.<a>";
+	    echo "<br><br><p><a class='option' href=\"tree_form.php\">Submit another tree.</a></p>";
 	  }
 	  $db = null;
 	} catch(PDOException $e) {
