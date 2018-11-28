@@ -37,7 +37,7 @@ include("menu.PHP");
 	  if (count($result_set) == 0){
 	    echo "You have submitted no trees.\n <a href=\"createTree.php\">Submit a tree now.<a>";
 	  }else {
-			echo "<h2>Submitted trees:</h2><ul>";
+			echo "<h2>Submitted trees:</h2>";
 	    foreach($result_set as $tuple) {
 	      echo "<a class='tree' href= \"viewTree.php?treeID=$tuple[treeID]\">$tuple[name]</a>";
 	    }

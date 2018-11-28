@@ -23,17 +23,17 @@ include("menu.PHP");
 	    $stmt = $db->prepare('SELECT * FROM trees WHERE treeID == ?');
 	    $stmt->execute(array($_GET["treeID"]));
 	    $result = $stmt->fetch();
-	    echo "name: $result[name] <br/>";
-	    echo "description: $result[descript] <br/>";
-	    echo "species: $result[species] <br/>";
-	    echo "rings: $result[rings] <br/>";
-	    echo "height: $result[height] <br/>";
-      echo "<img src=\"images/$result[photoID]\" alt=\"no image found at images/$result[photoID]\">";
+			echo "<h1>$result[name]</h1> </br></br></br></br></br>";
+			echo "<img src=\"images/$result[photoID]\" alt=\"no image found at images/$result[photoID]\"></br>";
+	    echo "<h3>description: $result[descript] </h3>";
+	    echo "<h3>species: $result[species] </h3>";
+	    echo "<h3>rings: $result[rings] </h3>";
+	    echo "<h3>height: $result[height] </h3>";
+      
 	    $db = null;
 	  } catch(PDOException $e) {
 	    die('Exception : '.$e->getMessage());
 	  }
-
 
 	 ?>
 </div>
