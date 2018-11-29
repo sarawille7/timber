@@ -43,37 +43,20 @@ include("menu.PHP");
 	    $stmt = $db->prepare('SELECT * FROM trees WHERE treeID == ?');
 	    $stmt->execute(array($_GET["treeID"]));
 	    $result = $stmt->fetch();
-	?>
+			echo "<h1>$result[name]</h1> </br></br></br></br></br>";
+			echo "<img src=\"images/$result[photoID]\" alt=\"no image found at images/$result[photoID]\"></br>";
+	    echo "<h3>description: $result[descript] </h3>";
+	    echo "<h3>species: $result[species] </h3>";
+	    echo "<h3>rings: $result[rings] </h3>";
+	    echo "<h3>height: $result[height] </h3>";
 
-
-			<br/>
-			<div class = "row">
-				<div class = "col">
-					<div class="treeProfileContent">
-				    <div size="20"> <?php echo $result[name]?> </div>
-				    Species: <?php echo $result[species]?> <br/>
-				    Rings: <?php echo $result[rings]?> <br/>
-				    Height: <?php echo $result[height]?> inches <br/>
-				    <p> <?php echo $result[descript]?> </p> <br/>
-					</div>
-				</div>
-
-				<div class = "col">
-					<div class="img-container-background">
-		          <div class="img-container">
-		            <img src="images/<?php echo$result[photoID]?>" alt="No image found at images/<?php echo$result[photoID]?>" class="treeImg">
-		          </div>
-		      </div>
-				</div>
-			</div>
-
-	  <?php  $db = null;
+	    $db = null;
 	  } catch(PDOException $e) {
 	    die('Exception : '.$e->getMessage());
 	  }
 		?>
 
-
+	 ?>
 </div>
 </body>
 </html>
