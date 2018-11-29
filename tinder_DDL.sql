@@ -19,10 +19,10 @@ CREATE TABLE Trees(
     username TEXT NOT NULL,
     name TEXT NOT NULL,
     photoID INTEGER NOT NULL UNIQUE,
-    rings INTEGER NOT NULL CHECK,
+    rings INTEGER NOT NULL,
     descript TEXT NOT NULL CHECK(LENGTH(descript) < 280),
     species TEXT NOT NULL,
-    height REAL NOT NULL CHECK,
+    height REAL NOT NULL,
     FOREIGN KEY (username)
         REFERENCES Users (username)
           ON UPDATE CASCADE
