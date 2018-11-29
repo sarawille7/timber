@@ -4,8 +4,7 @@
     <style>
 
       .buttonsContainer{
-        margin: auto;
-        /* width: 10%; */
+        width: 100%;
       }
 
       .button {
@@ -25,17 +24,19 @@
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
         color: #fff;
       }
+      .matcher{
+        display: inline-block;
+      }
 
       .likeButton {
         background-color: #0ffa90;
         color: #164c17;
-        border-bottom-color: #164c17;
         float:left;
+        border:0px;
       }
       .passButton {
         background-color: #993010;
         color: #421401;
-        border-bottom-color: #421401;
         float:right;
       }
 
@@ -49,30 +50,6 @@
         margin-left: 350px;
         font-family: sans-serif;
         color: #333;
-      }
-
-      *{
-  			box-sizing: border-box;
-  		}
-
-            /* Create two equal columns that floats next to each other */
-      .col {
-          width: 50%; /* was 50 in example */
-          padding: 10px;
-          height: 300px; /* Should be removed. Only for demonstration */
-          float: left;
-      }
-
-
-      /* Clear floats after the columns */
-      .row:after {
-          content: "";
-          display: table;
-          clear: both;
-      }
-
-      .row{
-        margin-left: 25%;
       }
 
 
@@ -106,21 +83,18 @@
         //that way we don't query db every loop
         // query random ID
         $currentUser = $_SESSION["username"];
-        // $matchesOfUser = "SELECT treeID FROM Matches WHERE username == $_SESSION["username"]"; //find all matches from user
         $stmt = $db->prepare('SELECT * FROM Trees WHERE treeID NOT IN (SELECT treeID FROM Matches WHERE Matches.username == ?) AND (Trees.username <> ?)'); //find all matches from user
-        $stmt->execute(array($currentUser));
-        $nonMatchesSelect = $stmt->fetch();
-
-        $selectedTreeKey = array_rand($nonMatchesSelect, 1);
-        var_dump($nonMatchesSelect);
-        $selectedTree = $nonMatchesSelect[$selectedTreeKey];
-        var_dump($selectedTree);
-        $db = null;
-        } catch(PDOException $e) {
-           die('Exception : '.$e->getMessage());
+        $stmt->execute(array($currentUser, $currentUser));
+        $nonMatchesSelect = $stmt->fetchAll();
+        if(!$nonMatchesSelect){
+          header("Location: noTrees.php");
         }
-    ?>
+        $selectedTreeKey = array_rand($nonMatchesSelect, 1);
+        $selectedTree = $nonMatchesSelect[$selectedTreeKey];
 
+        $db = null;
+
+    ?>
 
 
     <div class = "main">
@@ -137,27 +111,56 @@
         </h4>
       </div>
 
-      <!-- Two Columns, Image and profile content -->
-      <div class="row">
-        <div class="col leftcol columnImage">
-          <h1> test for image content </h1>
-        </div>
-        <div class="col rightcol columnText">
-          <h1> test for text content </h1>
-        </div>
-      </div>
+      <!-- Image and other Profile content -->
+      <table class="possibleMatch">
+        <tr>
+          <td>
+            <div class="img-container-background">
+                <div class="img-container">
+                  <img src="images/<?php echo$selectedTree[photoID]?>" alt="No image found at images/<?php echo$selectedTree[photoID]?>" class="treeImg">
+                </div>
+            </div>
+          </td>
+        <tr>
+          <td>
+				    <?php echo '<h3>'.$selectedTree[name].'</h3>'?>
+				    Species: <?php echo $selectedTree[species]?> <br/>
+				    Rings: <?php echo $selectedTree[rings]?> <br/>
+				    Height: <?php echo $selectedTree[height]?> inches <br/>
+				    <p> <?php echo $selectedTree[descript]?> </p> <br/>
+          </td>
+        </tr>
+      </table>
 
     <!-- Buttons -->
-      <div class = "row">
-        <div class = "buttonsContainer">
-          <div class ="col">
+          <table class="buttonsContainer">
+            <tr>
+              <td>
             <a class = "button passButton" href = "findMatches.php"><h3>PASS!</h3></a>
-          </div>
-          <div class ="col">
-            <a class = "button likeButton" href = ""><h3>LIKE!</h3></a>
-          </div>
-        </div>
-      </div>
+          </td>
+          <td>
+            <?php
+            //Now, populate a hidden form with all of these values. If the user chooses "LIKE!", the form is sent.
+            echo '<div class="matcher">
+                    <form method="post" action="createMatch.php">
+                      <input type="hidden" name="username" value="'.$currentUser.'">
+                      <input type="hidden" name="treeID" value="'.$selectedTree["treeID"].'">
+                      <button type="submit" name="submit_param" value="submit_value" class="button likeButton">
+                        <h3>LIKE!</h3>
+                      </button>
+                    </form>
+                  </div>';
+             ?>
+           </td>
+         </tr>
+       </table>
     </div>
+
+
+    <?php
+    } catch(PDOException $e) {
+      die('Exception : '.$e->getMessage());
+    }
+    ?>
   </body>
 </html>

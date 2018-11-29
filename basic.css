@@ -1,11 +1,144 @@
 
+
+/* .navbar a:link, a:visited {
+    background-color: #2b722c;
+    color: peru;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+} */
+body {margin:0;
+    top:30px;}
+
+    .navbar {
+      overflow: hidden;
+      background-color: #3f7240;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #b58448;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      font-family: "Arial", "Helvetica", sans-serif;
+      background-color: #3f7240;
+      border-radius: 0px;
+    }
+    .navbar a:visited {
+        background-color: #3f7240;
+        color: #b58448;
+        text-align: center;
+        text-decoration: none;
+        /* display: inline-block; */
+        width: 200px;
+        height: 30px;
+        padding: 15px 15px;
+        float: left;
+        border-radius: 0px;
+    }
+    .navbar a:link{
+        background-color: #3f7240;
+        color: #b58448;
+        text-align: center;
+        text-decoration: none;
+        /* display: inline-block; */
+        width: 200px;
+        height: 30px;
+        padding: 15px 15px;
+        float: left;
+        border-radius: 0px;
+    }
+    .navbar a:active {
+        background-color: #4cb24e;
+        color: #4f4320;
+        width: 200px;
+        height: 30px;
+        padding: 15px 15px;
+        float: left;
+        border-radius: 0px;
+    }
+    .navbar a:hover {
+        background-color: #4cb24e;
+        color: #4f4320;
+        width: 200px;
+        height: 30px;
+        padding: 15px 15px;
+        float: left;
+        border-radius: 0px;
+    }
+    /* .navbar a:hover {
+      background: #4cb24e;
+      color: peru;
+    } */
+    .main {
+        padding: 16px;
+        margin-top: 30px;
+        height: 1500px; /* Used in this example to enable scrolling */
+    }
+    a.option:link, a.option:visited {
+            background-color: #5c964f;
+            color: #4f4320;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            /* display: inline-block; */
+            /* width: 200px;
+            height: 30px; */
+            padding: 10px 10px;
+            float: left;
+            border-radius: 12px;
+        }
+
+
+    a.option:hover, a.option:active {
+            background-color: #4cb24e;
+            padding: 10px 10px 10px 10px;
+            color: #4f4320;
+            /* height: 30px; */
+            float: left;
+            border-radius: 12px;
+
+    }
+    a.tree:link, a.tree:visited {
+        font-size: 25px;
+        background-color: #5c964f;
+        color: #4f4320;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        /* display: inline-block; */
+        /* width: 200px;
+        height: 30px; */
+        padding: 10px 10px;
+        float: left;
+        border-radius: 12px;
+    }
+
+
+a.tree:hover, a.tree:active {
+    font-size: 25px;
+        background-color: #4cb24e;
+        padding: 10px 10px 10px 10px;
+        color: #4f4320;
+        /* height: 30px; */
+        float: left;
+        border-radius: 12px;
+
+}
 body {
-    background-color: lightblue;
+    background-color: #5c964f;
 }
 ol
 li {
     margin: 5px;
-    background: #cce5ff;
+    background: #5c964f;
     padding: 5px;
     text-align: left;
 }
@@ -40,4 +173,45 @@ img {
 	text-align: left;
   top: 400px;
   transform: translate(35%, 0);
+}
+/* WARNING: This killed my buttons, don't do this */
+/* a:link, a:visited {
+    background-color: #5c964f;
+    color: #4f4320;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    /* width: 200px;
+    height: 30px; */
+    padding: 10px 10px;
+    float: left;
+    /* border-radius: 0px; */
+} */
+
+
+a:hover, a:active {
+    background-color: #4cb24e;
+    padding: 10px 10px 10px 10px;
+    color: #4f4320;
+    /* height: 30px; */
+    float: left;
+    /* border-radius: 0px; */
+}
+h1 {
+    color: #4f4320;
+    width: 200px;
+    float: left;
+}
+h2 {
+    color: #4f4320;
+    width: 300px;
+    /* float: left; */
+}
+h3.logo{
+    color: #b58448;
+    width: 100px;
+    float: left;
+    height: 20;
+    padding-left: 15px;
 }
