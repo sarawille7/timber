@@ -56,7 +56,6 @@ include("menu.PHP");
 	  }
 		?>
 
-	 ?>
 </div>
 </body>
 </html>

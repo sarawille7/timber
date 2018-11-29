@@ -3,11 +3,6 @@
 <head><link rel="stylesheet" type="text/css" href="basic.css"></head>
 <body>
 <?php
-if(empty($_SESSION["username"]) || empty($_SESSION["valid"])) {
-  //user is not logged in
-  header("Location: login.php");
-  die();
-}
 include("menu.PHP");
 ?>
 <div class = "main">

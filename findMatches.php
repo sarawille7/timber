@@ -79,7 +79,6 @@
         $db = new PDO('sqlite:./myDB/timber.db');
         $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        //TODO: see if querying a query is possible, and then make non-matches selection a query result
         //that way we don't query db every loop
         // query random ID
         $currentUser = $_SESSION["username"];
