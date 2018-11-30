@@ -95,8 +95,8 @@ body {margin:0;
             float: left;
             border-radius: 12px;
         }
-        
-        
+
+
     a.option:hover, a.option:active {
             background-color: #4cb24e;
             padding: 10px 10px 10px 10px;
@@ -104,7 +104,7 @@ body {margin:0;
             /* height: 30px; */
             float: left;
             border-radius: 12px;
-        
+
     }
     a.tree:link, a.tree:visited {
         font-size: 25px;
@@ -120,8 +120,8 @@ body {margin:0;
         float: left;
         border-radius: 12px;
     }
-    
-    
+
+
 a.tree:hover, a.tree:active {
     font-size: 25px;
         background-color: #4cb24e;
@@ -130,7 +130,7 @@ a.tree:hover, a.tree:active {
         /* height: 30px; */
         float: left;
         border-radius: 12px;
-    
+
 }
 body {
     background-color: #5c964f;
@@ -142,11 +142,40 @@ li {
     padding: 5px;
     text-align: left;
 }
-img {
-    width: 50%;
-    height: auto;
+
+.image-background {
+  background: #000;
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
-a:link, a:visited {
+
+.image-container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+img {
+  display: block;
+  max-height: 500px;
+  max-width: 500px;
+	height: 300px;
+  margin: auto;
+}
+
+.treeProfileContent{
+	vertical-align: middle;
+	text-align: left;
+  top: 400px;
+  transform: translate(35%, 0);
+}
+/* WARNING: This killed my buttons, don't do this */
+/* a:link, a:visited {
     background-color: #5c964f;
     color: #4f4320;
     padding: 14px 25px;
@@ -158,7 +187,7 @@ a:link, a:visited {
     padding: 10px 10px;
     float: left;
     /* border-radius: 0px; */
-}
+} */
 
 
 a:hover, a:active {

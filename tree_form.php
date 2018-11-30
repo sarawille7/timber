@@ -4,6 +4,16 @@
 <head><link rel="stylesheet" type="text/css" href="basic.css"></head>
 <body>
 <?php
+if(empty($_SESSION["username"])) {
+  //user is not logged in
+  header("Location: login.php");
+  die();
+}
+if($_SESSION["privileges"] == "admin") {
+	//user is admin and shouldn't use this page
+	header("Location: admin.php");
+	die();
+}
 include("menu.PHP");
 ?>
 <div class = "main">
