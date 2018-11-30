@@ -33,9 +33,9 @@ include("menu.PHP");
 	  $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	  $stmt = $db->prepare('SELECT treeID, name FROM trees WHERE username == ?');
 	  $stmt->execute(array($_SESSION["username"]));
-	  $result_set = $stmt->fetchAll();
+		$result_set = $stmt->fetchAll();
 	  if (count($result_set) == 0){
-	    echo "You have submitted no trees.\n <a href=\"createTree.php\">Submit a tree now.<a>";
+	    echo "<br><br><br><br><a class=option href=\"createTree.php\">Submit a tree<a>";
 	  }else {
 			echo "<h2>Submitted trees:</h2>";
 	    foreach($result_set as $tuple) {
@@ -49,7 +49,7 @@ include("menu.PHP");
 	  $result_set = $stmt->fetchAll();
     echo "<span>";
 	  if (count($result_set) == 0){
-	    echo "<br/>You have matched with no trees.\n <a href=\"findMatches.php\">Get matched!<a>";
+	    echo "<br><br><br><a class=option href=\"findMatches.php\">Get matched!<a>";
 	  }else {
 			echo "<br/><h2>Matches:</h2>";
 	    foreach($result_set as $tuple) {
