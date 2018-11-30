@@ -92,7 +92,7 @@
         $selectedTree = $nonMatchesSelect[$selectedTreeKey];
 
         $db = null;
-
+        echo var_dump($selectedTree["photoID"]);
     ?>
 
 
@@ -116,17 +116,18 @@
           <td>
             <div class="img-container-background">
                 <div class="img-container">
-                  <img src="images/<?php echo$selectedTree[photoID]?>" alt="No image found at images/<?php echo$selectedTree[photoID]?>" class="treeImg">
+                  <?php echo "<img src=\"images/$selectedTree[photoID]\" alt=\"no image found at images/$selectedTree[photoID]\" class=\"treeImg\"></br>"; ?>
+            	    echo "<h3>description: $result[descript] </h3>";
                 </div>
             </div>
           </td>
         <tr>
           <td>
-				    <?php echo '<h3>'.$selectedTree[name].'</h3>'?>
-				    Species: <?php echo $selectedTree[species]?> <br/>
-				    Rings: <?php echo $selectedTree[rings]?> <br/>
-				    Height: <?php echo $selectedTree[height]?> inches <br/>
-				    <p> <?php echo $selectedTree[descript]?> </p> <br/>
+				    <?php echo '<h3>'.$selectedTree["name"].'</h3>'?>
+				    Species: <?php echo $selectedTree["species"]?> <br/>
+				    Rings: <?php echo $selectedTree["rings"]?> <br/>
+				    Height: <?php echo $selectedTree["height"]?> inches <br/>
+				    <p> <?php echo $selectedTree["descript"]?> </p> <br/>
           </td>
         </tr>
       </table>

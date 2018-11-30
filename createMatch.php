@@ -12,9 +12,11 @@ try{
 
   $matchUser = $_POST["username"];
   $matchTree = $_POST["treeID"];
+	$currentTime = new DateTime("NOW");
+	$matchDate = $currentTime->format('Y-m-d H:i:s');
 
 	$stmt = $db->prepare('INSERT INTO Matches VALUES(?, ?, ?)');
-	$stmt->execute(array($matchUser, $matchTree, "datetime('now')"));
+	$stmt->execute(array($matchUser, $matchTree, $matchDate));
 	$db = null;
 } catch(PDOException $e) {
 	die('Exception : '.$e->getMessage());
