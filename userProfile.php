@@ -33,9 +33,9 @@ include("menu.PHP");
 	  $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	  $stmt = $db->prepare('SELECT treeID, name FROM trees WHERE username == ?');
 	  $stmt->execute(array($_SESSION["username"]));
-	  $result_set = $stmt->fetchAll();
+		$result_set = $stmt->fetchAll();
 	  if (count($result_set) == 0){
-	    echo "You have submitted no trees.\n <a href=\"createTree.php\">Submit a tree now.<a>";
+	    echo "<br><br><br><br><a class=option href=\"createTree.php\">Submit a tree<a>";
 	  }else {
 			echo "<h2>Submitted trees:</h2>";
 	    foreach($result_set as $tuple) {
@@ -43,6 +43,21 @@ include("menu.PHP");
 	    }
 	    echo "<br><br><p><a class='option' href=\"tree_form.php\">Submit another tree.</a></p>";
 	  }
+    //Matches
+    $stmt = $db->prepare('SELECT treeID, name FROM (select treeID, name from trees) NATURAL JOIN matches NATURAL JOIN users WHERE username == ?');
+	  $stmt->execute(array($_SESSION["username"]));
+	  $result_set = $stmt->fetchAll();
+    echo "<span>";
+	  if (count($result_set) == 0){
+	    echo "<br><br><br><a class=option href=\"findMatches.php\">Get matched!<a>";
+	  }else {
+			echo "<br/><h2>Matches:</h2>";
+	    foreach($result_set as $tuple) {
+	      echo "<a class='tree' href= \"viewTree.php?treeID=$tuple[treeID]\">$tuple[name]</a>";
+	    }
+	    echo "<br><br><p><a class='option' href=\"tree_form.php\">Continue matching!</a></p>";
+	  }
+    echo "</span>";
 	  $db = null;
 	} catch(PDOException $e) {
 	  die('Exception : '.$e->getMessage());

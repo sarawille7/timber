@@ -101,7 +101,7 @@ include("menu.PHP");
         <br>
       Height in Inches:<br><input type="text" name="height" required pattern="[0-9]+" value='<?php echo $height; ?>'><br>
   </form>
-  Description (280 Characters Max):<br><textarea name="description" maxlength = "280" value='<?php echo $description; ?>' form="treeForm"></textarea><br>
+  Description (280 Characters Max):<br><textarea name="description" maxlength = "280" value='<?php echo $description;  ?>'  form="treeForm"></textarea><br>
     <input type="submit" value= '<?php echo $button; ?>' form="treeForm">
 </div>
 </body>
