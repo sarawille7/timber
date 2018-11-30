@@ -46,6 +46,7 @@
         }
         if (!isset($_SESSION['privileges'])) {
           echo "<a href=\"login.php\">Login</a> ";
+          echo "<a href=\"user_form.php\">Sign Up</a> ";
         }
         else if ($_SESSION['privileges'] == "admin"){
           echo "<a href=\"admin.php\">Admin Interface</a>";

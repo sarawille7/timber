@@ -24,18 +24,23 @@ include("menu.PHP");
 	    $result_set = $stmt->fetchAll();
       foreach ($result_set as $result){
         echo "user: <b>$result[username]</b> <br/>";
-        $stmt = $db->prepare('SELECT treeID, name FROM trees WHERE username == ?');
-        $stmt->execute(array($result['username']));
-        $result_set = $stmt->fetchAll();
-        if (count($result_set) == 0){
-          echo "User has submitted no trees<br/>";
-        }else {
-          echo "Submitted trees:<br/>";
-          foreach($result_set as $tuple) {
-            echo "<a href= \"viewTree.php?treeID=$tuple[treeID]\">$tuple[name]</a><br/>";
-          }
+        if ($result['privileges'] == "admin"){
+          echo "Is an admin.<br/>";
         }
-        echo "</br>";
+        else {
+          $stmt = $db->prepare('SELECT treeID, name FROM trees WHERE username == ?');
+          $stmt->execute(array($result['username']));
+          $result_set = $stmt->fetchAll();
+          if (count($result_set) == 0){
+            echo "User has submitted no trees<br/>";
+          }else {
+            echo "Submitted trees:<br/>";
+            foreach($result_set as $tuple) {
+              echo "<a href= \"viewTree.php?treeID=$tuple[treeID]\">$tuple[name]</a><br/>";
+            }
+          }
+          echo "<br/>";
+        }
       }
 	    $db = null;
 	  } catch(PDOException $e) {

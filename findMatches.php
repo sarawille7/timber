@@ -117,7 +117,6 @@
             <div class="img-container-background">
                 <div class="img-container">
                   <?php echo "<img src=\"images/$selectedTree[photoID]\" alt=\"no image found at images/$selectedTree[photoID]\" class=\"treeImg\"></br>"; ?>
-            	    echo "<h3>description: $result[descript] </h3>";
                 </div>
             </div>
           </td>
