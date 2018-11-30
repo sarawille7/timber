@@ -4,6 +4,7 @@
 <head><link rel="stylesheet" type="text/css" href="basic.css"></head>
 <body>
 <?php
+session_start();
 if(empty($_SESSION["username"])) {
   //user is not logged in
   header("Location: login.php");

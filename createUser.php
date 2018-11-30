@@ -22,5 +22,6 @@ try{
 }
 $_SESSION['valid'] = TRUE;
 $_SESSION['username'] = $_POST["username"];
+$_SESSION['privileges'] = "general";
 header("Location: userProfile.php");
 ?>
