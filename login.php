@@ -13,6 +13,8 @@ include("menu.PHP");
       Password:<br><input type="password" name="password"><br>
   <input type="submit" value= '<?php echo "Login"; ?>'>
   </form>
+
+  <p>Don't have an account? </p> <a href="user_form.php">Sign up here.</a>
 </div>
 </body>
 </html>

@@ -92,7 +92,6 @@
         $selectedTree = $nonMatchesSelect[$selectedTreeKey];
 
         $db = null;
-        echo var_dump($selectedTree["photoID"]);
     ?>
 
 
