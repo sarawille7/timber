@@ -13,10 +13,6 @@ body {margin:0;
     top:30px;}
 
     }
-    /* .navbar a:hover {
-      background: #4cb24e;
-      color: peru;
-    } */
     .main {
         padding: 16px;
         margin-top: 30px;
@@ -151,4 +147,21 @@ h3.logo{
     float: left;
     height: 20;
     padding-left: 15px;
+}
+
+/* Stying for tree profile display */
+.treeProfile{
+  padding-top: 30px;
+  margin-left: 40%;
+}
+
+.treeProfileText{
+  padding: 20px;
+  background-color: #9fc49d;
+  width:300px;
+  font-family: sans-serif;
+}
+
+.desc{
+  font-style: "Trebuchet MS", Helvetica, sans-serif;
 }
