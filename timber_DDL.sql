@@ -20,7 +20,7 @@ CREATE TABLE Trees(
     name TEXT NOT NULL,
     photoID INTEGER NOT NULL UNIQUE,
     rings INTEGER NOT NULL,
-    descript TEXT NOT NULL CHECK(LENGTH(descript) < 280),
+    descript TEXT NOT NULL CHECK(LENGTH(descript) < 281),
     species TEXT NOT NULL,
     height REAL NOT NULL,
     FOREIGN KEY (username)

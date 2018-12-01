@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="stylesheet" type="text/css">
     <style>
       body {margin:0;
       top:30px;}
 
       .navbar {
         overflow: hidden;
-        background-color: #296;
+        background-color: #293a20;
         position: fixed;
         top: 0;
         width: 100%;
@@ -26,8 +26,7 @@
       }
 
       .navbar a:hover {
-        background: #a2f2f2;
-        color: #0074a7;
+        color: #00a774;
       }
 
       .main {

@@ -41,18 +41,40 @@
       }
 
       .matchTitle{
-        font-family: sans-serif;
-        color: #333;
+        padding-top: 30px;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        color: #293a20;
         margin-left: 300px;
+        font-weight: bold;
+        font-size: 3em;
+
+
       }
 
       .matchTagline{
         margin-left: 350px;
         font-family: sans-serif;
-        color: #333;
+        color: #405137;
+        font-size: 1em;
+        font-weight: bold;
+      }
+
+      .treeProfile{
+        padding-top: 30px;
+        margin-left: 40%;
+      }
+
+      .treeProfileText{
+        padding: 20px;
+        background-color: #9fc49d;
+        width:300px;
+        font-family: sans-serif;
       }
 
 
+      .desc{
+        font-style: "Trebuchet MS", Helvetica, sans-serif;
+      }
     </style>
   </head>
 
@@ -90,9 +112,9 @@
         }
         $selectedTreeKey = array_rand($nonMatchesSelect, 1);
         $selectedTree = $nonMatchesSelect[$selectedTreeKey];
+        $treeImgWidth = getimagesize($selectedTree["photoID"])[0];
 
         $db = null;
-        echo var_dump($selectedTree["photoID"]);
     ?>
 
 
@@ -100,33 +122,31 @@
 
       <!-- Title content -->
       <div class = "matchTitle">
-        <h1>
           Find Your Match!
-        </h1>
       </div>
       <div class = "matchTagline">
-        <h4>
           Hit "LIKE!" to add the Tree to your matches! Hit "PASS!" to see more Trees!
-        </h4>
       </div>
 
       <!-- Image and other Profile content -->
-      <table class="possibleMatch">
+      <table class="treeProfile">
         <tr>
           <td>
             <div class="img-container-background">
                 <div class="img-container">
-                  <?php echo "<img src=\"images/$selectedTree[photoID]\" alt=\"no image found at images/$selectedTree[photoID]\" class=\"treeImg\"></br>"; ?>
+                  <?php echo "<img src=\"images/$selectedTree[photoID]\" alt=\"no image found at images/$selectedTree[photoID]\" class=\"treeImg\" style=\"max-width: $treeImgWidth\"></br>"; ?>
                 </div>
             </div>
           </td>
         <tr>
           <td>
-				    <?php echo '<h3>'.$selectedTree["name"].'</h3>'?>
-				    Species: <?php echo $selectedTree["species"]?> <br/>
-				    Rings: <?php echo $selectedTree["rings"]?> <br/>
-				    Height: <?php echo $selectedTree["height"]?> inches <br/>
-				    <p> <?php echo $selectedTree["descript"]?> </p> <br/>
+            <div class="treeProfileText ">
+  				    <?php echo '<h3>'.$selectedTree["name"].'</h3>'?>
+  				    Species: <?php echo $selectedTree["species"]?> <br/>
+  				    Rings: <?php echo $selectedTree["rings"]?> <br/>
+  				    Height: <?php echo $selectedTree["height"]?> inches <br/>
+  				    <div class="desc"> <?php echo $selectedTree["descript"]?> </div> <br/>
+            </div>
           </td>
         </tr>
       </table>

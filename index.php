@@ -10,8 +10,6 @@ include("menu.PHP");
 
   <div class = "main">
 
-  <img src="images/ben_thomas_accession_3.png"/>
-
   <div>
     <h2>
       <a href = "timber.php">Project 4: Timber</a>
