@@ -48,7 +48,8 @@ include("menu.PHP");
         </tr>
         <?php 
           if ($result["username"] == $_SESSION["username"]){
-            echo "<tr><td><div><a href = \"deleteTree.php?treeID=$result[treeID]\">Delete Tree?</a></div></td></tr>";
+						echo "<tr><td><a class='option' href=\"./tree_form.php?treeID=$result[treeID]&treename=$result[name]&rings=$result[rings]&description=$result[descript]&species=$result[species]&height=$result[height]\">Update</a>";
+            echo "<a class='option' href = \"deleteTree.php?treeID=$result[treeID]\">Delete</a></td></tr>";
           }
         ?>
       </table>

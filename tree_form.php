@@ -18,18 +18,17 @@ if($_SESSION["privileges"] == "admin") {
 include("menu.PHP");
 ?>
 <div class = "main">
-  <h2>Create Tree</h2>
+  
 
    <?php
-   //treeID
-   //username
-   //name
-   //photoID
-   //rings
-   //description
-   //species
-   //height
+
   $is_update = true;
+
+  if(isset($_GET['treeID'])){
+    $treeID = $_GET['treeID'];}
+  else{
+    $treeID = '';
+    $is_update = false;}
 
   if(isset($_GET['treename'])){
       $treename = $_GET['treename'];}
@@ -38,11 +37,11 @@ include("menu.PHP");
       $is_update = false;}
 
 
-  if(isset($_GET['photo'])){
-      $photo = $_GET['photo'];}
-  else{
-      $photo = '';
-      $is_update = false;}
+//   if(isset($_GET['photo'])){
+//       $photo = $_GET['photo'];}
+//   else{
+//       $photo = '';
+//       $is_update = false;}
 
   if(isset($_GET['rings'])){
       $rings = $_GET['rings'];}
@@ -70,9 +69,11 @@ include("menu.PHP");
 
 
   if($is_update === true){
+      ?><h2>Update Tree</h2><?php
       $action_direct = 'updateTree.php';
       $button = 'Update Info';}
   else{
+      ?><h2>Create Tree</h2><?php
       $action_direct = 'createTree.php';
       $button = 'Submit';}
 
@@ -101,6 +102,9 @@ include("menu.PHP");
                   </select>
         <br>
       Height in Inches:<br><input type="text" name="height" required pattern="[0-9]+" value='<?php echo $height; ?>'><br>
+      <?php
+      echo "<input type='hidden' name='treeID' value=$treeID>";
+      ?>
   </form>
   Description (280 Characters Max):<br><textarea name="description" maxlength = "280" value='<?php echo $description;  ?>'  form="treeForm"></textarea><br>
     <input type="submit" value= '<?php echo $button; ?>' form="treeForm">
