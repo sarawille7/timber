@@ -79,6 +79,7 @@ include("menu.PHP");
   try{ //accessing PossibleSpecies relation to populate dropdown
       $db = new PDO('sqlite:./myDB/timber.db');
       $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      include("checkBan.php");
       $possible_species = $db->query('SELECT species FROM PossibleSpecies;');
       $db = null;
     } catch(PDOException $e) {

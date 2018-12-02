@@ -100,6 +100,7 @@
         // access DB
         $db = new PDO('sqlite:./myDB/timber.db');
         $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        include("checkBan.php");
 
         //that way we don't query db every loop
         // query random ID

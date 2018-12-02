@@ -30,6 +30,7 @@ include("menu.PHP");
 	try{
 	  $db = new PDO('sqlite:./myDB/timber.db');
 	  $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include("checkBan.php");
 	  $stmt = $db->prepare('SELECT treeID, name FROM trees WHERE username == ?');
 	  $stmt->execute(array($_SESSION["username"]));
 		$result_set = $stmt->fetchAll();
