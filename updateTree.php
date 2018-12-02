@@ -74,7 +74,6 @@
         catch(PDOException $e) {
             die('Exception : '.$e->getMessage());
         }
-
-	header("Location: /userProfile.php?success=true");
+	header("Location: userProfile.php?success=true");
 
 ?>
