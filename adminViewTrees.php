@@ -25,7 +25,7 @@ include("menu.PHP");
       foreach ($result_set as $result){
         echo "name: <a href=\"viewTree.php?treeID=$result[treeID]\">$result[name]</a> <br/>";
         echo "species: $result[species] <br/>";
-        echo "published by: $result[username] <br/><br/>";
+        echo "published by: $result[username] -- <a href=\"deleteTree.php?treeID=$result[treeID]\">Delete Tree?</a> <br/><br/>";
       }
 	    $db = null;
 	  } catch(PDOException $e) {
