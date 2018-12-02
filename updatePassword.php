@@ -9,11 +9,20 @@
         try {
             //open connection to the airport database file
             $hashed_password = password_hash ($_POST["password"] , PASSWORD_DEFAULT );
-	        $db = new PDO('sqlite:./myDB/timber.db');
+            $db = new PDO('sqlite:./myDB/timber.db');
 
             //set errormode to use exceptions
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+            $stmt = $db->prepare('SELECT password FROM users WHERE username == ?;');
+            $stmt->execute(array($_POST["username"]));
+            $result = $stmt->fetch();
+            $pass = $result["password"];
+            $verify = password_verify($_POST["oldpassword"], $pass);
+            if (!$verify){
+              header("Location: password_form.php?success=false&username=$_POST[username]");
+              die();
+            }
 
             $stmt = $db->prepare('UPDATE users SET password=? WHERE username=?;');
             $stmt->execute(array($hashed_password,$_POST["username"]));

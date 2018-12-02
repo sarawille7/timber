@@ -49,7 +49,7 @@ CREATE TABLE Matches(
 );
 
 CREATE TABLE Banned(
-    username ATE UNIQUE,
+    username TEXT UNIQUE,
     banDate TIMESTAMP NOT NULL,
     FOREIGN KEY (username)
         REFERENCES Users (username)
@@ -100,7 +100,7 @@ CREATE TABLE SpeciesActivity(
     eventTime TIMESTAMP,
     oldSpecies TEXT,
     newSpecies TEXT,
-    PRIMARY KEY (event, eventTime)
+    PRIMARY KEY (event, eventTime, oldSpecies, newSpecies)
 );
 
 CREATE TRIGGER SpeciesEvent_delete
@@ -111,17 +111,17 @@ CREATE TRIGGER SpeciesEvent_delete
         END;
 
 CREATE TRIGGER SpeciesEvent_insert
-    AFTER DELETE ON PossibleSpecies
+    AFTER INSERT ON PossibleSpecies
         BEGIN
             INSERT INTO SpeciesActivity
             VALUES ('Insertion', datetime('now'), null, NEW.species);
         END;
 
 CREATE TRIGGER SpeciesEvent_update
-    AFTER DELETE ON PossibleSpecies
+    AFTER UPDATE ON PossibleSpecies
         BEGIN
             INSERT INTO SpeciesActivity
-            VALUES ('Insertion', datetime('now'), OLD.species, NEW.species);
+            VALUES ('Update', datetime('now'), OLD.species, NEW.species);
         END;
 
 CREATE TRIGGER UserEvent_delete
@@ -132,17 +132,17 @@ CREATE TRIGGER UserEvent_delete
         END;
 
 CREATE TRIGGER UserEvent_insert
-    AFTER DELETE ON Users
+    AFTER INSERT ON Users
         BEGIN
             INSERT INTO UserActivity
             VALUES ('Insertion', datetime('now'), NEW.username, null, null, NEW.password, NEW.privileges);
         END;
 
 CREATE TRIGGER UserEvent_update
-    AFTER DELETE ON Users
+    AFTER UPDATE ON Users
         BEGIN
             INSERT INTO UserActivity
-            VALUES ('Insertion', datetime('now'), OLD.username, OLD.password, OLD.privileges, NEW.password, NEW.privileges);
+            VALUES ('Update', datetime('now'), OLD.username, OLD.password, OLD.privileges, NEW.password, NEW.privileges);
         END;
 
 CREATE TRIGGER TreeEvent_delete
@@ -160,7 +160,7 @@ CREATE TRIGGER TreeEvent_insert
                 END;
 
 CREATE TRIGGER TreeEvent_update
-    AFTER DELETE ON Trees
+    AFTER UPDATE ON Trees
         BEGIN
             INSERT INTO TreeActivity
             VALUES ('Update', datetime('now'), OLD.TreeID, OLD.name, OLD.photoID, OLD.rings, OLD.descript, OLD.species, OLD.height, NEW.name, NEW.photoID, NEW.rings, NEW.descript, NEW.species, NEW.height);

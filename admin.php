@@ -19,6 +19,8 @@ include("menu.PHP");
   <a href = "adminViewTrees.php">View all trees</a>
   <a href = "adminViewUsers.php">View all users</a>
   <br><a href = "adminSpecies.php">Manage species</a>
+  <br><a href = "adminLogUser.php">View User Activity Log</a>
+  <br><a href = "adminLogTree.php">View Tree Activity Log</a>
 	<p><a href="logout.php">Logout</a></p>
 	<?php
 
