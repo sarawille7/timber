@@ -101,13 +101,15 @@ include("menu.PHP");
                   ?>
                   </select>
         <br>
-      Height in Inches:<br><input type="text" name="height" required pattern="[0-9]+" value='<?php echo $height; ?>'><br>
-      <?php
+      Height in Inches:<br><input type="text" name="height" required pattern="[0-9]+" value='<?php echo intval($height); ?>'><br>
+      
+  
+        Description (280 Characters Max):<br><textarea name="description" maxlength = "280" ><?php echo $description;  ?></textarea><br>
+        <?php
       echo "<input type='hidden' name='treeID' value=$treeID>";
       ?>
-  </form>
-  Description (280 Characters Max):<br><textarea name="description" maxlength = "280" value='<?php echo $description;  ?>'  form="treeForm"></textarea><br>
     <input type="submit" value= '<?php echo $button; ?>' form="treeForm">
+    </form>
 </div>
 </body>
 </html>
