@@ -24,7 +24,6 @@ include("menu.PHP");
 	<?php
 	//echo "<a href=\"./passenger_form.php?ssn=$tuple[ssn]\">Update</a><br/>\n";
 	echo "<a class='option'  href=\"./password_form.php?username=$_SESSION[username]\">Update Password</a>\n"; ?>
-	<!-- <p><a href="password_form.php?username=$_SESSION['username']">Update Password</a></p> -->
 	<a class='option' href="logout.php">Logout</a>
 	<?php
 

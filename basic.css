@@ -24,11 +24,9 @@ body {margin:0;
             padding: 14px 25px;
             text-align: center;
             text-decoration: none;
-            /* display: inline-block; */
-            /* width: 200px;
-            height: 30px; */
+            display: inline-block;
+            width: 200px;
             padding: 10px 10px;
-            float: left;
             border-radius: 12px;
         }
 
@@ -37,8 +35,6 @@ body {margin:0;
             background-color: #4cb24e;
             padding: 10px 10px 10px 10px;
             color: #4f4320;
-            /* height: 30px; */
-            float: left;
             border-radius: 12px;
 
     }
@@ -49,9 +45,8 @@ body {margin:0;
         padding: 14px 25px;
         text-align: center;
         text-decoration: none;
-        /* display: inline-block; */
-        /* width: 200px;
-        height: 30px; */
+        margin:.02em; 
+        height: 30px;
         padding: 10px 10px;
         float: left;
         border-radius: 12px;
