@@ -100,11 +100,13 @@
         // access DB
         $db = new PDO('sqlite:./myDB/timber.db');
         $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        include("checkBan.php");
 
         //that way we don't query db every loop
         // query random ID
         $currentUser = $_SESSION["username"];
-        $stmt = $db->prepare('SELECT * FROM Trees WHERE treeID NOT IN (SELECT treeID FROM Matches WHERE Matches.username == ?) AND (Trees.username <> ?)'); //find all matches from user
+        $stmt = $db->prepare('SELECT * FROM Trees WHERE treeID NOT IN (SELECT treeID FROM Matches WHERE Matches.username == ?) AND (Trees.username <> ?) 
+          AND (Trees.username NOT IN (SELECT username FROM Banned WHERE Banned.banDate > date(\'now\')))'); //find all matches from user
         $stmt->execute(array($currentUser, $currentUser));
         $nonMatchesSelect = $stmt->fetchAll();
         if(!$nonMatchesSelect){
