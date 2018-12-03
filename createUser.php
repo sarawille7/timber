@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?php
+=======
+<!DOCTYPE html>
+<html>
+>>>>>>> 0ca9423c2dbd3b67039c0adb6501efb8c58468c9
 <head><link rel="stylesheet" type="text/css" href="basic.css">
 </head>
 session_start();
