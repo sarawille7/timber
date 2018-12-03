@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="basic.css">
+</head>
 <?php
 
         if(empty($_POST["password"]) || empty($_POST["oldpassword"]) ||empty($_POST["username"])) {
@@ -20,7 +24,8 @@
             $pass = $result["password"];
             $verify = password_verify($_POST["oldpassword"], $pass);
             if (!$verify){
-              header("Location: password_form.php?success=false&username=$_POST[username]");
+              echo "Password does not match ";
+              echo "<a class='option' href = \"password_form.php?username=$_POST[username]\">Try Again</a>";
               die();
             }
 
@@ -36,3 +41,4 @@
 	header("Location: userProfile.php?success=true");
 
 ?>
+</html>

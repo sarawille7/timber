@@ -1,5 +1,12 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="basic.css">
+</head>
+<?php
+session_start();
 	//take contents of user_form.html via post request
 	//check username and password fields not empty
 	//if empty, redirect back to input form using header() function
@@ -18,10 +25,13 @@ try{
 	$stmt->execute(array($_POST["username"],$hashed_password));
 	$db = null;
 } catch(PDOException $e) {
-	die('Exception : '.$e->getMessage());
+	echo "That username is taken. ";
+	echo "<a class='option' href = \"user_form.php\">Try Again</a>";
+	die();
 }
 $_SESSION['valid'] = TRUE;
 $_SESSION['username'] = $_POST["username"];
 $_SESSION['privileges'] = "general";
 header("Location: userProfile.php");
 ?>
+</html>
