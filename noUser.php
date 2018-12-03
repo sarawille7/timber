@@ -1,8 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="basic.css"></head>
+<body>
 <?php
 include("menu.PHP");
+?>
 
-echo("No user exists with that username or password.");
-echo"<a href='login.php'>Try Again</a>";
-echo"<a href='user_form.php'>Create an Account</a>";
+<div class = "main">
+  <h1> "Error: Something went wrong!" </h1>
+<br>
+  <h2 href="login.php"> Try Again </h2>
+<br>
+<h2 "New here? Click" <h2 href="tree_form.php"> here </h2> to make an account! </h2>
 
- ?>
+</body>
+</html>
