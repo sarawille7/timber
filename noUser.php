@@ -5,8 +5,8 @@
 include("menu.PHP");
 ?>
 <style>
-background-color: #749f5d;
 <div class = "main">
+background-color: #749f5d;
   <h1> Error: Something went wrong! </h1>
 <br>
   <h2><a href="login.php"> Try Again</a></h2>
