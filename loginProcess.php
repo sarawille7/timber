@@ -23,7 +23,8 @@ try{
     header("Location: userProfile.php");
   }
   else {
-    echo("Nope, no user here");
+    header("Location: noUser.php");
+		die();
   }
 	$db = null;
 } catch(PDOException $e) {
