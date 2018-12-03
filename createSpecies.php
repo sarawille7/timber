@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 if($_SESSION["privileges"] != "admin") {
 	//this is an admin-only page
 	header("Location: timber.php");
@@ -21,6 +23,7 @@ try{
 	$stmt->execute(array($species));
 	$db = null;
 } catch(PDOException $e) {
+	error_reporting(E_ALL);
 	die('Exception : '.$e->getMessage());
 }
 

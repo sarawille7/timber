@@ -81,6 +81,8 @@
   <body>
     <?php
     session_start();
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
     if(empty($_SESSION["username"]) || empty($_SESSION["valid"])) {
     	//user is not logged in
     	header("Location: login.php");
@@ -105,7 +107,7 @@
         //that way we don't query db every loop
         // query random ID
         $currentUser = $_SESSION["username"];
-        $stmt = $db->prepare('SELECT * FROM Trees WHERE treeID NOT IN (SELECT treeID FROM Matches WHERE Matches.username == ?) AND (Trees.username <> ?) 
+        $stmt = $db->prepare('SELECT * FROM Trees WHERE treeID NOT IN (SELECT treeID FROM Matches WHERE Matches.username == ?) AND (Trees.username <> ?)
           AND (Trees.username NOT IN (SELECT username FROM Banned WHERE Banned.banDate > date(\'now\')))'); //find all matches from user
         $stmt->execute(array($currentUser, $currentUser));
         $nonMatchesSelect = $stmt->fetchAll();
@@ -182,6 +184,7 @@
 
     <?php
     } catch(PDOException $e) {
+      error_reporting(E_ALL);
       die('Exception : '.$e->getMessage());
     }
     ?>

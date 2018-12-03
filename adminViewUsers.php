@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 if(empty($_SESSION["username"]) || empty($_SESSION["valid"]) || $_SESSION["privileges"] != "admin") {
 	//user is not an admin
 	header("Location: timber.php");
@@ -43,11 +45,11 @@ include("menu.PHP");
           $stmt->execute(array($result['username']));
           $result_set = $stmt->fetchAll();
           if (count($result_set) == 0){
-            echo "User has never been banned. Ban for: 
-              <a  href= \"createBan.php?username=$result[username]&banType=day\">1 Day?</a>  
-              <a  href= \"createBan.php?username=$result[username]&banType=week\">1 Week?</a>  
-              <a  href= \"createBan.php?username=$result[username]&banType=month\">1 Month?</a>  
-              <a  href= \"createBan.php?username=$result[username]&banType=year\">1 Year?</a>  
+            echo "User has never been banned. Ban for:
+              <a  href= \"createBan.php?username=$result[username]&banType=day\">1 Day?</a>
+              <a  href= \"createBan.php?username=$result[username]&banType=week\">1 Week?</a>
+              <a  href= \"createBan.php?username=$result[username]&banType=month\">1 Month?</a>
+              <a  href= \"createBan.php?username=$result[username]&banType=year\">1 Year?</a>
               <a  href= \"createBan.php?username=$result[username]&banType=lifetime\">1000 Years?</a>
               <br/>";
           }else {
@@ -62,11 +64,11 @@ include("menu.PHP");
             if ($ban > $now){
               echo "User is banned until: $ban. <a  href= \"unban.php?username=$result[username]\">Unban?</a><br/>";
             } else {
-              echo "User's ban ended on: $ban. Ban for: 
-              <a  href= \"createBan.php?username=$result[username]&banType=day\">1 Day?</a>  
-              <a  href= \"createBan.php?username=$result[username]&banType=week\">1 Week?</a>  
-              <a  href= \"createBan.php?username=$result[username]&banType=month\">1 Month?</a>  
-              <a  href= \"createBan.php?username=$result[username]&banType=year\">1 Year?</a>  
+              echo "User's ban ended on: $ban. Ban for:
+              <a  href= \"createBan.php?username=$result[username]&banType=day\">1 Day?</a>
+              <a  href= \"createBan.php?username=$result[username]&banType=week\">1 Week?</a>
+              <a  href= \"createBan.php?username=$result[username]&banType=month\">1 Month?</a>
+              <a  href= \"createBan.php?username=$result[username]&banType=year\">1 Year?</a>
               <a  href= \"createBan.php?username=$result[username]&banType=lifetime\">1000 Years?</a>
               <br/>";
             }
@@ -76,6 +78,7 @@ include("menu.PHP");
       }
 	    $db = null;
 	  } catch(PDOException $e) {
+			error_reporting(E_ALL);
 	    die('Exception : '.$e->getMessage());
 	  }
 

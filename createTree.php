@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 	//take contents of tree_form.html via post request
 	//check tree fields not empty... name, photo, rings, description, species, height
 	//if empty, redirect back to input form using header() function
@@ -9,7 +11,7 @@ if(empty($_POST["treename"]) || empty($_FILES["photo"]) || empty($_POST["rings"]
 	//redirect back to input form using header()
 	header("Location: tree_form.php");
 	die();
-} 
+}
 try{
   $photo = crc32(uniqid());
   $treename = $_POST["treename"];
@@ -31,13 +33,14 @@ try{
         die();
     }
   }
-  
+
 	$db = new PDO('sqlite:./myDB/timber.db');
 	$db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$stmt = $db->prepare('INSERT INTO trees(treeID, username, name, photoID, rings, descript, species, height) VALUES(?,?, ?, ?, ?, ?, ?, ?)');
 	$stmt->execute(array(crc32(uniqid()), $_SESSION["username"], $_POST["treename"],$photo, $_POST["rings"], $_POST["description"], $_POST["species"], $_POST["height"]));
 	$db = null;
 } catch(PDOException $e) {
+	error_reporting(E_ALL);
 	die('Exception : '.$e->getMessage());
 }
 //$_SESSION['valid'] = TRUE;

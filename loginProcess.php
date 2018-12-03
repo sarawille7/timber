@@ -1,10 +1,12 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 if(empty($_POST["username"]) || empty($_POST["password"])) {
 	//redirect back to input form using header()
 	header("Location: login.php");
 	die();
-} 
+}
 try{
     $hashed_password = password_hash ( $_POST["password"] , PASSWORD_DEFAULT );
 	$db = new PDO('sqlite:./myDB/timber.db');
@@ -25,6 +27,7 @@ try{
   }
 	$db = null;
 } catch(PDOException $e) {
+	error_reporting(E_ALL);
 	die('Exception : '.$e->getMessage());
 }
 ?>

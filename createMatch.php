@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 if(empty($_POST["username"]) || empty($_POST["treeID"])) {
 	//redirect back using header()
 	header("Location: findMatches.php");
@@ -19,6 +21,7 @@ try{
 	$stmt->execute(array($matchUser, $matchTree, $matchDate));
 	$db = null;
 } catch(PDOException $e) {
+	error_reporting(E_ALL);
 	die('Exception : '.$e->getMessage());
 }
 

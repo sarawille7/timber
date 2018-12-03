@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 if(empty($_SESSION["username"]) || empty($_SESSION["valid"]) || $_SESSION["privileges"] != "admin") {
 	//user is not an admin
 	header("Location: timber.php");
@@ -29,6 +31,7 @@ include("menu.PHP");
       }
 	    $db = null;
 	  } catch(PDOException $e) {
+			error_reporting(E_ALL);
 	    die('Exception : '.$e->getMessage());
 	  }
 
