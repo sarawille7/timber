@@ -11,7 +11,7 @@ if(empty($_SESSION["username"]) || empty($_SESSION["valid"])) {
 	header("Location: login.php");
 	die();
 }
-}catch{
+}catch(PDOException $e){
 		error_reporting(E_ALL);
 }
 ?>
