@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head><link rel="stylesheet" type="text/css" href="basic.css">
@@ -16,7 +13,7 @@ if(empty($_POST["username"]) || empty($_POST["password"])) {
 	//redirect back to input form using header()
 	header("Location: /user_form.php");
 	die();
-} 
+}
 try{
     $hashed_password = password_hash ( $_POST["password"] , PASSWORD_DEFAULT );
 	$db = new PDO('sqlite:./myDB/timber.db');

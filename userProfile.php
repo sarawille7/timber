@@ -13,14 +13,25 @@ if($_SESSION["privileges"] == "admin") {
 ?>
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" type="text/css" href="basic.css"></head>
+<head>
+	<link rel="stylesheet" type="text/css" href="basic.css">
+	<style>
+	.userTitle{
+		padding-top: 30px;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+		color: #293a20;
+		font-weight: bold;
+		font-size: 2em;
+	}
+	</style>
+</head>
 <body>
 <?php
 include("menu.PHP");
 ?>
 
 <div class = "main">
-	<h1><?php  echo $_SESSION["username"]; ?>'s profile</h1><br>
+	<div class = "userTitle"><?php  echo $_SESSION["username"]; ?>'s profile</div><br>
 	<?php
 	//echo "<a href=\"./passenger_form.php?ssn=$tuple[ssn]\">Update</a><br/>\n";
 	echo "<a class='option'  href=\"./password_form.php?username=$_SESSION[username]\">Update Password</a>\n"; ?>

@@ -47,8 +47,6 @@
         margin-left: 300px;
         font-weight: bold;
         font-size: 3em;
-
-
       }
 
       .matchTagline{
@@ -57,23 +55,6 @@
         color: #405137;
         font-size: 1em;
         font-weight: bold;
-      }
-
-      .treeProfile{
-        padding-top: 30px;
-        margin-left: 40%;
-      }
-
-      .treeProfileText{
-        padding: 20px;
-        background-color: #9fc49d;
-        width:300px;
-        font-family: sans-serif;
-      }
-
-
-      .desc{
-        font-style: "Trebuchet MS", Helvetica, sans-serif;
       }
     </style>
   </head>
@@ -105,7 +86,7 @@
         //that way we don't query db every loop
         // query random ID
         $currentUser = $_SESSION["username"];
-        $stmt = $db->prepare('SELECT * FROM Trees WHERE treeID NOT IN (SELECT treeID FROM Matches WHERE Matches.username == ?) AND (Trees.username <> ?) 
+        $stmt = $db->prepare('SELECT * FROM Trees WHERE treeID NOT IN (SELECT treeID FROM Matches WHERE Matches.username == ?) AND (Trees.username <> ?)
           AND (Trees.username NOT IN (SELECT username FROM Banned WHERE Banned.banDate > date(\'now\')))'); //find all matches from user
         $stmt->execute(array($currentUser, $currentUser));
         $nonMatchesSelect = $stmt->fetchAll();
