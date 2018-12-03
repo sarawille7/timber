@@ -20,7 +20,7 @@ include("menu.PHP");
 ?>
 <h2>WRITE ANY QUERY</h2>
 
-<form action="executeArbitraryQuery.php" method="post">
+<form style="margin-left:300px" action="executeArbitraryQuery.php" method="post">
   Query:<br><input size="50" value="<?php if(isset($_GET['query'])){echo $_GET['query'];} ?>" type="text" name="query"><br>
   <input type="submit">
 </form>
