@@ -18,7 +18,7 @@ if($_SESSION["privileges"] != "admin") {
 
 	if(!isset($_POST["query"])) {
 		//redirect back to input form using header()
-		header("Location: http://54.173.137.240/~ubuntu/arbitraryQuery.php");
+		header("Location: http://54.173.137.240/~ubuntu/adminArbitraryQuery.php");
 		die();
 	}
 
@@ -53,10 +53,10 @@ if($_SESSION["privileges"] != "admin") {
         catch(PDOException $e) {
             $st = 'Exception : '.$e->getMessage();
 	echo $st;
-	    header("Location: http://54.173.137.240/~ubuntu/arbitraryQuery.php?query=$stmt&out=$st");
+	    header("Location: http://54.173.137.240/~ubuntu/adminArbitraryQuery.php?query=$stmt&out=$st");
             die('Exception : '.$e->getMessage());
         }
 
-	header("Location: http://54.173.137.240/~ubuntu/arbitraryQuery.php?query=$stmt&out=$out");
+	header("Location: http://54.173.137.240/~ubuntu/adminArbitraryQuery.php?query=$stmt&out=$out");
 
 ?>
