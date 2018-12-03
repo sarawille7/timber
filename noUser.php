@@ -8,8 +8,7 @@ include("menu.PHP");
   <h1> Error: Something went wrong! </h1>
 <br>
   <h2><a href="login.php"> Try Again</a></h2>
-<br>
-<h2> New here? Click <a href="tree_form.php"> here</a> to sign up! </h2>
+  <h2> New to our service? Click <a href="user_form.php"> here</a> to sign up! </h2>
 
 </div>
 </body>
