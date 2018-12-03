@@ -1,5 +1,12 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="basic.css">
+</head>
+<?php
+session_start();
 	//take contents of user_form.html via post request
 	//check username and password fields not empty
 	//if empty, redirect back to input form using header() function
@@ -27,3 +34,4 @@ $_SESSION['username'] = $_POST["username"];
 $_SESSION['privileges'] = "general";
 header("Location: userProfile.php");
 ?>
+</html>

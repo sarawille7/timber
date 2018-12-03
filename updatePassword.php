@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="basic.css">
+</head>
 <?php
 
         if(empty($_POST["password"]) || empty($_POST["oldpassword"]) ||empty($_POST["username"])) {
@@ -37,3 +41,4 @@
 	header("Location: userProfile.php?success=true");
 
 ?>
+</html>
