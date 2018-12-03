@@ -20,7 +20,8 @@
             $pass = $result["password"];
             $verify = password_verify($_POST["oldpassword"], $pass);
             if (!$verify){
-              header("Location: password_form.php?success=false&username=$_POST[username]");
+              echo "Password does not match ";
+              echo "<a class='option' href = \"password_form.php?username=$_POST[username]\">Try Again</a></td></tr>";
               die();
             }
 
