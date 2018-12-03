@@ -46,8 +46,15 @@ include("menu.PHP");
             </div>
           </td>
         </tr>
+        <?php 
+          if ($result["username"] == $_SESSION["username"]){
+						echo "<tr><td><a class='option' href=\"./tree_form.php?treeID=$result[treeID]&treename=$result[name]&rings=$result[rings]&description=$result[descript]&species=$result[species]&height=$result[height]\">Update</a>";
+            echo "<a class='option' href = \"deleteTree.php?treeID=$result[treeID]\">Delete</a></td></tr>";
+          }
+        ?>
       </table>
 <?php
+    
 	  $db = null;
 	  } catch(PDOException $e) {
 	    die('Exception : '.$e->getMessage());

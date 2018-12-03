@@ -55,7 +55,7 @@ include("menu.PHP");
 	    foreach($result_set as $tuple) {
 	      echo "<a class='tree' href= \"viewTree.php?treeID=$tuple[treeID]\">$tuple[name]</a>";
 	    }
-	    echo "<br><br><p><a class='option' href=\"tree_form.php\">Continue matching!</a></p>";
+	    echo "<br><br><p><a class='option' href=\"findMatches.php\">Continue matching!</a></p>";
 	  }
     echo "</span>";
 	  $db = null;
