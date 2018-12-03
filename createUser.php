@@ -18,7 +18,9 @@ try{
 	$stmt->execute(array($_POST["username"],$hashed_password));
 	$db = null;
 } catch(PDOException $e) {
-	die('Exception : '.$e->getMessage());
+	echo "That username is taken. ";
+	echo "<a class='option' href = \"user_form.php\">Try Again</a>";
+	die();
 }
 $_SESSION['valid'] = TRUE;
 $_SESSION['username'] = $_POST["username"];

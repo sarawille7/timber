@@ -21,7 +21,7 @@
             $verify = password_verify($_POST["oldpassword"], $pass);
             if (!$verify){
               echo "Password does not match ";
-              echo "<a class='option' href = \"password_form.php?username=$_POST[username]\">Try Again</a></td></tr>";
+              echo "<a class='option' href = \"password_form.php?username=$_POST[username]\">Try Again</a>";
               die();
             }
 
