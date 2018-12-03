@@ -14,7 +14,7 @@ if($_SESSION["privileges"] != "admin") {
 	die();
 }
 	//path to the SQLite database file
-        $db_file = './myDB/airport.db';
+        $db_file = './myDB/timber.db';
 
 	if(!isset($_POST["query"])) {
 		//redirect back to input form using header()
