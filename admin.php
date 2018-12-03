@@ -21,6 +21,7 @@ include("menu.PHP");
   <br><a href = "adminSpecies.php">Manage species</a>
   <br><a href = "adminLogUser.php">View User Activity Log</a>
   <br><a href = "adminLogTree.php">View Tree Activity Log</a>
+  <br><a href = "adminArbitraryQuery.php">Input Arbitrary Query</a>
 	<p><a href="logout.php">Logout</a></p>
 	<?php
 
