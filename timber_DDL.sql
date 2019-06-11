@@ -69,7 +69,7 @@ CREATE TABLE UserActivity(
     FOREIGN KEY (username)
         REFERENCES Users (username)
             ON UPDATE CASCADE
-            ON UPDATE CASCADE
+            ON DELETE CASCADE
 );
 
 CREATE TABLE TreeActivity(
@@ -92,7 +92,7 @@ CREATE TABLE TreeActivity(
     FOREIGN KEY (treeID)
         REFERENCES Trees (treeID)
             ON UPDATE CASCADE
-            ON UPDATE CASCADE
+            ON DELETE CASCADE
 );
 
 CREATE TABLE SpeciesActivity(
